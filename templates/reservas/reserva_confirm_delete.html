@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block title %}Eliminar Reserva{% endblock %}
+{% block content %}
+  <h2>Confirmar eliminación</h2>
+  <p>¿Eliminar {{ object }}?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sí, eliminar</button>
+    <a href="{% url 'reservas:reserva_list' %}">Cancelar</a>
+  </form>
+{% endblock %}

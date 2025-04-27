@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Personas{% endblock %}
+{% block content %}
+<h2>Personas</h2>
+<a href="{% url 'reservas:persona_create' %}">Nueva Persona</a>
+<ul>
+  {% for persona in personas %}
+    <li>
+      {{ persona }} |
+      <a href="{% url 'reservas:persona_update' persona.pk %}">Editar</a> |
+      <a href="{% url 'reservas:persona_delete' persona.pk %}">Eliminar</a>
+    </li>
+  {% empty %}
+    <li>No hay personas registradas.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

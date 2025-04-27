@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+{% block title %}Formulario Reserva{% endblock %}
+{% block content %}
+<h2>Formulario Reserva</h2>
+<form method="post">{% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">Guardar</button>
+</form>
+{% endblock %}

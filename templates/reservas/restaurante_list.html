@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block title %}Restaurantes{% endblock %}
+{% block content %}
+<h2>Restaurantes</h2>
+<a href="{% url 'reservas:restaurante_create' %}">Nuevo Restaurante</a>
+<ul>
+  {% for r in restaurantes %}
+    <li>
+      {{ r }} |
+      <a href="{% url 'reservas:restaurante_update' r.pk %}">Editar</a> |
+      <a href="{% url 'reservas:restaurante_delete' r.pk %}">Eliminar</a>
+    </li>
+  {% empty %}
+    <li>No hay restaurantes registrados.</li>
+  {% endfor %}
+</ul>
+{% endblock %}

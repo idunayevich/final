@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block title %}{{ page.title }}{% endblock %}
+{% block content %}
+  <h2>{{ page.title }}</h2>
+  <h4>{{ page.subtitle }}</h4>
+  <p>{{ page.body|safe }}</p>
+  {% if page.image %}
+    <img src="{{ page.image.url }}" alt="{{ page.title }}">
+  {% endif %}
+  <p>Creada: {{ page.created }}</p>
+  <a href="{% url 'pages:list' %}">Volver al listado</a>
+{% endblock %}
